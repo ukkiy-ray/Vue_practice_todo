@@ -13,7 +13,13 @@
     <h1>My Todos</h1>
     <ul>
       <li v-for="(todo, index) in todos">
-        {{ todo }}
+        <input type="checkbox" v-model="todo.isDone">
+        
+        <!-- <span v-bind:class="{done: todo.isDone}">{{ todo.title }}</span> -->
+        <!-- v-bind もよく使われるため、以下のように省略可能-->
+        <span :class="{done: todo.isDone}">{{ todo.title }}</span>
+        <!-- todo の isDone が true の場合に done クラスを付ける -->
+
         <span @click="deleteItem(index)" class="cmd">[x]</span>
       </li>
     </ul>

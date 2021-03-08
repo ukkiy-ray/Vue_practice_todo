@@ -9,11 +9,16 @@
     el: '#app',
     data: {
       newItem: '',
-      todos: [
-        'task 1',
-        'task 2',
-        'task 3'
-      ]
+      todos: [{
+        title: 'task 1',
+        isDone: false
+      },{
+        title: 'task 2',
+        isDone: false
+      },{
+        title: 'task 3',
+        isDone: true
+      }]
     },
     methods: {
       //  addItem: function(e) {
@@ -24,7 +29,12 @@
 
 
       addItem: function() {
-        this.todos.push(this.newItem);
+        var item = {
+          title: this.newItem,
+          isDone: false
+        };
+
+        this.todos.push(item);
         // push することで newItem に追加された内容が todos の末尾に追加されて、結果として html の li 要素に反映される
 
         this.newItem = '';
