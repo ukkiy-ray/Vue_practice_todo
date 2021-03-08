@@ -1,0 +1,23 @@
+body {
+  font-size: 20px;
+  font-family: 'Raleway', sans-serif;
+}
+
+.container {
+  width: 400px;
+  margin: 100px auto;
+}
+
+#app h1 {
+  font-size: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #555555;
+}
+
+#app li {
+  line-height: 2;
+}
+
+#app input[type="text"] {
+  padding: 2px;
+}
