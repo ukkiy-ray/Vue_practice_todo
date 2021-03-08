@@ -21,3 +21,10 @@ body {
 #app input[type="text"] {
   padding: 2px;
 }
+
+.cmd {
+  color: red;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}

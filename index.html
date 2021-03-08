@@ -12,7 +12,10 @@
   <div id="app" class="container">
     <h1>My Todos</h1>
     <ul>
-      <li v-for="todo in todos">{{ todo }}</li>
+      <li v-for="(todo, index) in todos">
+        {{ todo }}
+        <span @click="deleteItem(index)" class="cmd">[x]</span>
+      </li>
     </ul>
 
     <!-- <form v-on:submit="addItem"> v-on はよく使うため @ で省略できる-->
