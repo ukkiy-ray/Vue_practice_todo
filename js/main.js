@@ -20,6 +20,25 @@
         isDone: true
       }]
     },
+
+    // watch でデータの監視をして localStorage に保存
+    watch: {
+      //  todos: function() {
+      //    localStorage.setItem('todos', JSON.stringify(this.todos));
+      //    alert('Data Saved!');
+      //  }
+
+      //  上の処理だとデータの中身の isDone 等の変更まではチェックされないため、 deep オプションで深層まで監視する
+      todos: {
+        handler: function() {
+          localStorage.setItem('todos', JSON.stringify(this.todos));
+          //  alert('Data Saved!');
+        },
+        deep: true
+      }
+    },
+
+
     methods: {
       //  addItem: function(e) {
       //    e.preventDefault();
