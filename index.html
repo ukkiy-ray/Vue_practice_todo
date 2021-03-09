@@ -10,11 +10,14 @@
 <body>
 
   <div id="app" class="container">
-    <h1>My Todos</h1>
+    <h1>
+      My Todos
+      <span class="info">({{ remaining }}/{{ todos.length }})</span>
+    </h1>
     <ul>
       <li v-for="(todo, index) in todos">
         <input type="checkbox" v-model="todo.isDone">
-        
+
         <!-- <span v-bind:class="{done: todo.isDone}">{{ todo.title }}</span> -->
         <!-- v-bind もよく使われるため、以下のように省略可能-->
         <span :class="{done: todo.isDone}">{{ todo.title }}</span>
@@ -22,6 +25,9 @@
 
         <span @click="deleteItem(index)" class="cmd">[x]</span>
       </li>
+      
+      <li v-show="!todos.length">Nothing to do, yay!</li>
+      <!-- v-show を使って todos の値が空の時にメッセージを表示するが、親要素に v-if を使って条件分岐で実装することも可能 -->
     </ul>
 
     <!-- <form v-on:submit="addItem"> v-on はよく使うため @ で省略できる-->

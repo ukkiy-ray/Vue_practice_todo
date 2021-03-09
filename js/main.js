@@ -12,10 +12,10 @@
       todos: [{
         title: 'task 1',
         isDone: false
-      },{
+      }, {
         title: 'task 2',
         isDone: false
-      },{
+      }, {
         title: 'task 3',
         isDone: true
       }]
@@ -33,18 +33,26 @@
           title: this.newItem,
           isDone: false
         };
-
         this.todos.push(item);
         // push することで newItem に追加された内容が todos の末尾に追加されて、結果として html の li 要素に反映される
 
         this.newItem = '';
         // input 要素の中を空文字にする
       },
-
       deleteItem: function(index) {
         if (confirm('are you sure?')) {
-          this.todos.splice(index, 1); // 引数の (index) 番目から1つ削除
+          this.todos.splice(index, 1);
+          // 引数の (index) 番目から1つ削除
         }
+      }
+    },
+    // データから動的にプロパティを計算してくれる算出プロパティ
+    computed: {
+      remaining: function() {
+        var items = this.todos.filter(function(todo) {
+          return !todo.isDone;
+        });
+        return items.length;
       }
     }
   });

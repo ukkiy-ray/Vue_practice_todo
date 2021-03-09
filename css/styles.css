@@ -38,3 +38,9 @@ body {
   cursor: pointer;
   font-weight: bold;
 }
+
+.info {
+  color: gray;
+  font-size: 14px;
+  font-weight: normal;
+}
