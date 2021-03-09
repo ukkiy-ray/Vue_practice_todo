@@ -44,15 +44,27 @@
           this.todos.splice(index, 1);
           // 引数の (index) 番目から1つ削除
         }
+      },
+      purge: function() {
+        if (!confirm('delete finished?')) {
+          return;
+        }
+        //  this.todos = this.todos.filter(function(todo) {
+        //    return !todo.isDone;
+        //  });
+        //  todo の isDone が true のものを返すことで終わっていないタスクのみ残す
+
+        //  フィルターの処理が重複するため下の remaining を使って DRY に書く
+        this.todos = this.remaining;
       }
     },
+
     // データから動的にプロパティを計算してくれる算出プロパティ
     computed: {
       remaining: function() {
-        var items = this.todos.filter(function(todo) {
+        return this.todos.filter(function(todo) {
           return !todo.isDone;
         });
-        return items.length;
       }
     }
   });
