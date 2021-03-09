@@ -9,16 +9,7 @@
     el: '#app',
     data: {
       newItem: '',
-      todos: [{
-        title: 'task 1',
-        isDone: false
-      }, {
-        title: 'task 2',
-        isDone: false
-      }, {
-        title: 'task 3',
-        isDone: true
-      }]
+      todos: []
     },
 
     // watch でデータの監視をして localStorage に保存
@@ -38,6 +29,10 @@
       }
     },
 
+    // ページがマウントされるタイミングでデータを読み取る
+    mounted: function(){
+      this.todos = JSON.parse(localStorage.getItem('todos')) || [];
+    },
 
     methods: {
       //  addItem: function(e) {
